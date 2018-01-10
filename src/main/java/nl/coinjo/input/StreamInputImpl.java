@@ -63,7 +63,7 @@ public class StreamInputImpl implements StreamInput {
 
         DefaultRolloverStrategy strategy = DefaultRolloverStrategy.createStrategy("10", "1", null, null, null,false,config);
 
-        Appender appender = RollingFileAppender.createAppender("files/"+name+".csv", "files/"+name+"-%d{yyyy-MM-dd_hh}.csv","false", "false", "false", "5", "true",
+        Appender appender = RollingFileAppender.createAppender("files/"+name+".csv", "files/"+name+"-%d{yyyy-MM-dd-hh}.csv","false", "false", "false", "5", "true",
                 policy, strategy, null, null, null, "false", null, config);
 
 //         appender = FileAppender.createAppender(name+".csv", "false", "false", "File", "true",
