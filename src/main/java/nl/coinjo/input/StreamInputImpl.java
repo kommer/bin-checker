@@ -54,6 +54,7 @@ public class StreamInputImpl implements StreamInput {
     }
 
     private Logger createNewLogger(String dir, String reference) {
+        String name = dir+"-"+reference;
         LoggerContext ctx = (LoggerContext) LogManager.getContext(false);
         final Configuration config = ctx.getConfiguration();
         Layout<? extends Serializable> layout = PatternLayout.createLayout(PatternLayout.SIMPLE_CONVERSION_PATTERN, null, config, null,
