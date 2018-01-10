@@ -43,7 +43,7 @@ public class StreamInputImpl implements StreamInput {
     private void writeTradeEventToFile(TradeEvent tradeEvent) {
         String line = tradeEvent.getEventReceivedTimestamp()+","+tradeEvent.getEventSendTimestamp()+","+tradeEvent.getTradeTimestamp()+","+String.format("%f", tradeEvent.getPrice())+","+tradeEvent.getQuantity()+","+tradeEvent.isMaker();
 
-        getWriter (tradeEvent.getInputSource(),tradeEvent.getSymbol()).info(line+"\n");
+        getWriter (tradeEvent.getInputSource(),tradeEvent.getSymbol()).info(line);
     }
 
     private Logger getWriter(Types.inputSource inputSource, String reference) {
