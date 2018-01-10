@@ -48,12 +48,12 @@ public class StreamInputImpl implements StreamInput {
 
     private Logger getWriter(Types.inputSource inputSource, String reference) {
         if (!loggers.containsKey(reference)) {
-            loggers.put(reference, createNewLogger(inputSource.name()+"-"+reference));
+            loggers.put(reference, createNewLogger(inputSource.name(), reference));
         }
         return loggers.get(reference);
     }
 
-    private Logger createNewLogger(String name) {
+    private Logger createNewLogger(String dir, String reference) {
         LoggerContext ctx = (LoggerContext) LogManager.getContext(false);
         final Configuration config = ctx.getConfiguration();
         Layout<? extends Serializable> layout = PatternLayout.createLayout(PatternLayout.SIMPLE_CONVERSION_PATTERN, null, config, null,
@@ -63,7 +63,7 @@ public class StreamInputImpl implements StreamInput {
 
         DefaultRolloverStrategy strategy = DefaultRolloverStrategy.createStrategy("10", "1", null, null, null,false,config);
 
-        Appender appender = RollingFileAppender.createAppender("files/"+name+".csv", "files/"+name+"-%d{yyyy-MM-dd-hh}.csv","false", "false", "false", "5", "true",
+        Appender appender = RollingFileAppender.createAppender("/files/"+dir+"/"+reference+".csv", "/files/"+dir+"/"+reference+"-%d{yyyy-MM-dd-hh}.csv","false", "false", "false", "5", "true",
                 policy, strategy, null, null, null, "false", null, config);
 
 //         appender = FileAppender.createAppender(name+".csv", "false", "false", "File", "true",
