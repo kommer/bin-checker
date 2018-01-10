@@ -30,7 +30,7 @@ public class InputApplication {
 
     BinanceApiClientFactory factory = BinanceApiClientFactory.newInstance();
 
-    private List<String> symbols = new LinkedList<String>(Arrays.asList("trxeth","icxeth","veneth","poeeth","lendeth","xvgeth","adaeth","xlmeth"));
+    private List<String> symbols = new LinkedList<String>(Arrays.asList("trxeth","icxeth","veneth","poeeth","lendeth","xvgeth","adaeth","xlmeth","reqeth","wabieth","iotaeth","neoeth","enjeth","xrpeth"));
 //    private List<String> symbols = new LinkedList<String>(Arrays.asList("trxeth","icxeth"));
 
 	public static void main(String[] args) {
